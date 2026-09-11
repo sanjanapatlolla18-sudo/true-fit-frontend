@@ -7,4 +7,10 @@ export default defineConfig({
     react(),
     tailwindcss(),
   ],
+  // Pinned: the backend allow-list is per-origin, so a silent fallback to the
+  // next free port would break CORS. Fail loudly instead.
+  server: {
+    port: 5173,
+    strictPort: true,
+  },
 })

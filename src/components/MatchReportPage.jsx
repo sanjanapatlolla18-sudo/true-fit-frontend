@@ -3,6 +3,7 @@ import { useAuth } from "@clerk/clerk-react";
 import { getActiveMatch, setActiveMatch } from "../utils/activeMatch";
 import { apiRequest } from "../api";
 import { SCORE_TRACK_COLOR, scoreFromText, scoreTone } from "../utils/score";
+import { formatCreatedAt } from "../utils/date";
 
 function cleanText(text = "") {
   const lines = String(text).replace(/\*+/g, "").replace(/^\s*#{1,6}\s*/gm, "").trim().split("\n");
@@ -277,7 +278,7 @@ function MatchReportPage({ matchId }) {
                 <span className="material-symbols-outlined text-[15px]">check_circle</span>
                 {scoreLabel}
               </span>
-              <span className="text-xs text-ink-400">{analysis.createdAt}</span>
+              <span className="text-xs text-ink-400">{formatCreatedAt(analysis.createdAt)}</span>
             </div>
 
             <h1 className="mt-3 truncate text-3xl font-extrabold tracking-tight md:text-4xl">

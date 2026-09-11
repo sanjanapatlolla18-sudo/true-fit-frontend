@@ -1,6 +1,7 @@
 import logo from "../assets/truefit_logo.svg";
 import { APP_NAME } from "../config";
 import { scoreFromText, scoreTone } from "../utils/score";
+import { formatCreatedAt } from "../utils/date";
 
 function ReportSection({ title, text }) {
   return (
@@ -69,7 +70,7 @@ function ExportReportPage({ analysis }) {
                 {analysis.companyName ? `${analysis.companyName} · ` : ""}
                 {analysis.resumeName}
               </p>
-              <p className="mt-1 text-sm text-ink-400">Generated {analysis.createdAt}</p>
+              <p className="mt-1 text-sm text-ink-400">Generated {formatCreatedAt(analysis.createdAt)}</p>
             </div>
 
             <div className="shrink-0 text-center">

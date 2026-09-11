@@ -3,6 +3,7 @@ import { useAuth, useUser } from "@clerk/clerk-react";
 import UploadSection from "../components/UploadSection";
 import { apiRequest } from "../api";
 import { HISTORY_LIMIT, RECENT_MATCHES_SHOWN } from "../config";
+import { formatCreatedAt } from "../utils/date";
 import { SCORE_TRACK_COLOR, scoreFromMatch, scoreTone } from "../utils/score";
 
 function Dashboard() {
@@ -218,7 +219,7 @@ function Dashboard() {
                     <p className="mt-0.5 truncate text-xs text-ink-500">
                       {match.companyName ? `${match.companyName} · ` : ""}{match.resumeName || "Resume"}
                     </p>
-                    <p className="mt-1.5 truncate text-[11px] text-ink-400">{match.createdAt || "Recently"}</p>
+                    <p className="mt-1.5 truncate text-[11px] text-ink-400">{formatCreatedAt(match.createdAt)}</p>
                   </div>
 
                   <Score score={scoreFromMatch(match)} />
